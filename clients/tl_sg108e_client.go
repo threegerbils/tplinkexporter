@@ -67,7 +67,7 @@ func (client *TPLINKSwitch) GetPortStats() ([]portStats, error) {
 			"state", `"State"`),
 		"pkts", `"Pkts"`)
 	// fmt.Println(string(jbody))
-	res := regexp.MustCompile(`all_info = ({[^;]*});`).FindStringSubmatch(jbody)
+	res := regexp.MustCompile(`tmp_info = ({[^;]*});`).FindStringSubmatch(jbody)
 	if res == nil {
 		// fmt.Println(jbody)
 		return nil, errors.New("unexpected response for port statistics http call: " + jbody)
